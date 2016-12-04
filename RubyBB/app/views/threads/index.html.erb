@@ -1,0 +1,44 @@
+<div id="header">
+	<div id="titletext">
+
+		<h1> List of Threads</h1>
+	</div>
+</div>
+
+<div id="main">
+
+
+	<div id="contentwrapper">
+
+		<div id ="content">
+
+		
+			<table>
+			  <tr>
+				<th>Title</th>
+				<th>                </th>
+				<th>link</th>
+			  </tr>
+			 
+			  <% @threads.each do |thread| %>
+				<tr>
+				  <td><%= thread.title %></td>
+				  <!--
+				  <td><%= thread.text %></td>
+				  -->
+				  <td>                  </td>
+				  <td><%= link_to "Show", thread_path(thread) %> </td>
+				  
+				</tr>
+			  <% end %>
+			</table>
+
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+ 

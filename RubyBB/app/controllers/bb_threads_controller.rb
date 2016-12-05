@@ -32,6 +32,9 @@ end
 end
 
 def show
+	if session["user_id"]
+		@user = User.find(session["user_id"])
+	end
 	@thread = BbThread.find(params[:id])
 end
 

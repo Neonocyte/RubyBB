@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20161205025104) do
 
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "bb_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "poster"
     t.text     "body",         limit: 65535
@@ -33,6 +40,16 @@ ActiveRecord::Schema.define(version: 20161205025104) do
     t.text     "text",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.boolean  "admin"
+    t.boolean  "banned"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_foreign_key "bb_posts", "bb_threads"

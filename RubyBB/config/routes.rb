@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  resources :threads
+  resources :bb_threads do
+	resources :bb_posts
+  end
+
   
   root 'welcome#index'
 

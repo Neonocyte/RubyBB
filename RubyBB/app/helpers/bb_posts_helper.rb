@@ -1,0 +1,2 @@
+module BbPostsHelper
+end

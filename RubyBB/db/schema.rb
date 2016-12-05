@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203185708) do
+ActiveRecord::Schema.define(version: 20161205025104) do
+
+  create_table "bb_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "poster"
+    t.text     "body",         limit: 65535
+    t.integer  "bb_thread_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["bb_thread_id"], name: "index_bb_posts_on_bb_thread_id", using: :btree
+  end
+
+  create_table "bb_threads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "ruby_bb_threads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -19,4 +35,5 @@ ActiveRecord::Schema.define(version: 20161203185708) do
     t.datetime "updated_at",               null: false
   end
 
+  add_foreign_key "bb_posts", "bb_threads"
 end

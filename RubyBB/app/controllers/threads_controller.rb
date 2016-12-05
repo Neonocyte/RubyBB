@@ -2,6 +2,7 @@ class ThreadsController < ApplicationController
 
 
 def new
+	@thread = RubyBbThread.new
 end
 
 def index
@@ -11,7 +12,7 @@ end
 def create
 	@thread = RubyBbThread.new(thread_params)
 	@thread.save
-	redirect_to '/threads/' + @thread.id.to_s
+	redirect_to @thread
 	
 end
 
@@ -21,7 +22,7 @@ end
 
 	private
 		def thread_params
-			params.require(:thread).permit(:title, :text)
+			params.require(:thread).permit(:title, :text, :body)
 		end
 		
 

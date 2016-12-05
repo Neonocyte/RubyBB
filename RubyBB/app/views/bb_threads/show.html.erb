@@ -1,0 +1,64 @@
+<div id="header">
+	<div id="titletext">
+
+		<h1> RubyBB </h1>
+	</div>
+</div>
+
+<div id="main">
+
+
+	<div id="contentwrapper">
+	
+
+
+		<div id ="content">
+
+			<p>
+			  <strong> <font size = "20:"> <%= @thread.title %> </font> </strong> 
+			</p>
+			
+			<p>
+			  <%= @thread.text %>
+			</p>			
+
+			<% @thread.bb_posts.each do |post| %>
+			<div id="bb_post">
+			  <p>
+			  
+				<strong>Poster:</strong>
+				<%= post.poster %>
+			  </p>
+			
+			 
+			  <p>
+				<strong>Post:</strong>
+				<%= post.body %>
+			</div>
+			  </p>
+			<% end %>
+			
+			<h2>Add a post:</h2>
+			<%= form_for([@thread, @thread.bb_posts.build]) do |f| %>
+			  <p>
+				<%= f.label :poster %><br>
+				<%= f.text_field :poster %>
+			  </p>
+			  <p>
+				<%= f.label :body %><br>
+				<%= f.text_area :body %>
+			  </p>
+			  <p>
+				<%= f.submit %>
+			  </p>
+			<% end %>
+
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+ 

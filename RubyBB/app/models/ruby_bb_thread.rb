@@ -1,4 +1,3 @@
 class RubyBbThread < ApplicationRecord
 
-
 end

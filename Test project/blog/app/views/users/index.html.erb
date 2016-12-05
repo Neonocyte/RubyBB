@@ -1,0 +1,17 @@
+<h1>Listing Threads</h1>
+ 
+<table>
+  <tr>
+    <th>Username</th>
+	<th>Banned?</th>
+	<th>Admin?</th>
+  </tr>
+ 
+  <% @user.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+	  <td><%= user.banned %></td>
+	  <td><%= user.admin %></td>
+    </tr>
+  <% end %>
+</table>
